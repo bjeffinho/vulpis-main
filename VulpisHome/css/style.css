@@ -1,0 +1,30 @@
+body {
+    min-width: 372px;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+.btn-um {
+    background-color: #BF784E !important;
+}
+
+.btn-dois {
+    background-color: #BBC3BC !important;
+}
+
+.text-um {
+    color: #4F5947 !important;
+}
+.product-enter {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+}
+
+.product-visible {
+    opacity: 1 !important;
+    max-height: none !important;
+}

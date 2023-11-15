@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/img/favicon/android-icon-192x192.png"
+        >
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/img/favicon/favicon-32x32.png"
+        >
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/img/favicon/favicon-96x96.png"
+        >
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/img/favicon/favicon-16x16.png"
+        >
+        <link rel="manifest" href="/img/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Vulpis Home & Decor :: Cadastro</title>
+    </head>
+    <body>
+        <div class="d-flex flex-column wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark border-bottom shadow-sm mb-3" style="background-color: #4F5947;">
+                <div class="container ">
+                    <a class="navbar-brand" href="/">
+                        <img
+                            src="/img/favicon/logo-vulpis.png"
+                            alt=""
+                            width="48"
+                            height="48"
+                            class="d-inline-block align-text-top"
+                        >
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-white active" href="/index.html">
+                                    <b>Vulpis Home & Decor</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/contato.html">Contato</a>
+                            </li>
+                        </ul>
+                        <div class="align-self-end">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a href="/cadastro.html" class="nav-link text-white">Cadastrar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/login.html" class="nav-link text-white">Login</a>
+                                </li>
+                                <li class="nav-item">                                   
+                                    <a href="/carrinho.html" class="nav-link text-white">
+                                        <img
+                                            src="/img/favicon/carrinho-icon.png"
+                                            alt=""
+                                            width="26"
+                                            height="26"
+                                            style="font-size: 24px; line-height: 24px;"
+                                        >
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <main class="flex-fill">
+                <div class="container">
+                    <h1>Informe seus dados para cadastrar</h1>
+                    <hr>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 ">
+                                <fieldset class="row">
+                                    <legend>Dados Pessoais</legend>
+                                    <div class="mb-3">
+                                        <label for="txtNome" Class="form-label">Nome</label>
+                                        <input type="text" Class="form-control" id="txtNome">
+                                    </div>
+                                    <div class="mb-3 col-md-6 col-xl-4">
+                                        <label for="txtCPF" Class="form-label">CPF</label>
+                                        <span class="form-text">(somente números)</span>
+                                        <input type="text" Class="form-control" id="txtCPF">
+                                    </div>
+                                    <div class="mb-3 col-md-6 col-xl-4">
+                                        <label for="txtDataNascimento" Class="form-label">Data de Nascimento</label>
+                                        <input type="date" Class="form-control" id="txtDataNascimento">
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Contatos</legend>
+                                    <div class="mb-3 col-md-8">
+                                        <label for="txtEmail" Class="form-label">Email</label>
+                                        <input type="email" Class="form-control" id="txtEmail">
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="txtTelefone" Class="form-label">Telefone</label>
+                                        <input
+                                            type="tel"
+                                            Class="form-control"
+                                            id="txtTelefone"
+                                            placeholder="1191112222"
+                                        >
+                                        <span class="form-text text-muted">(com DDD, somente números)</span>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <fieldset class="row">
+                                    <legend>Endereço</legend>
+                                    <div class="mb-3 col-md-6 col-lg-4">
+                                        <label for="txtCEP" class="form-label">CEP</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="txtCEP">
+                                            <span class="input-group-text p-1">
+                                                <svg
+                                                    class="bi"
+                                                    width="24"
+                                                    height="24"
+                                                    fill="currentColor"
+                                                >
+                                                    <use xlink:href="/bi.svg#hourglass-split"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-md-6 col-lg-8 align-self-end">
+                                        <textarea class="form-control text-muted bg-light" style="height:68px;">Digite o CEP para o endereço</textarea>
+                                    </div>
+                                    <div class="mb-3 col-md-4">
+                                        <label for="txtNumero" Class="form-label">Número</label>
+                                        <input type="text" Class="form-control" id="txtNumero">
+                                    </div>
+                                    <div class="mb-3 col-md-8">
+                                        <label for="txtComplemento" Class="form-label">Complemento</label>
+                                        <input type="text" Class="form-control" id="txtComplemento">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="txtReferencia" Class="form-label">Referência</label>
+                                        <input type="text" Class="form-control" id="txtReferencia">
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Senha de Acesso</legend>
+                                    <div class="mb-3">
+                                        <label for="txtSenha" Class="form-label">Senha</label>
+                                        <input type="password" Class="form-control" id="txtSenha">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="txtConfSenha" Class="form-label">Confirmação de Senha</label>
+                                        <input type="password" Class="form-control" id="txtConfSenha">
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                          <a class="btn btn-light btn-outline-danger" href="/index.html">Cancelar</a>
+                          <input type="button" value="Criar meu Cadastro" class="btn text-white btn-um" onclick="window.location.href='/confirmarcadastro.html'">
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <footer class="border-top text-muted" style="background-color: #4F5947;">
+                <div class="container">
+                    <div class="row py-3">
+                        <div class="col-12 col-md-4 text-center text-white text-opacity-50">
+                            &copy; 2023 - Vulpis Home & Decor Ltda ME
+                            <br>
+                            Projeto para Trabalho de Graduação
+                            <br>
+                            BRANDÃO, Jefferson & MENEZES, Yasmin
+                            <br>
+                            FATEC, Guarulhos.
+                        </div>
+                        <div class="col-12 col-md-4 text-center text-white">
+                            <a href="/privacidade.html" class="text-decoration-none text-white">
+                                Política de Privacidade
+                            </a>
+                            <br>
+                            <a href="/termos.html" class="text-decoration-none text-white">
+                                Termos de Uso
+                            </a>
+                            <br>
+                            <a href="/quemsomos.html" class="text-decoration-none text-white">
+                                Quem somos
+                            </a>
+                            <br>
+                            <a href="/trocas.html" class="text-decoration-none text-white">
+                                Trocas e Devoluções
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-4 text-center text-white">
+                            <a href="/" class="text-decoration-none text-white">
+                                <b>Contatos</b>
+                            </a>
+                            <br>
+                            <b>Instagram:</b>
+                            <a href="https://www.instagram.com/vulpishomedecor/" target="_blank" class="text-decoration-none text-white">
+                                @vulpishomedecor
+                            </a>
+                            <br>
+                            <b>DESENVOLVEDORES:</b>
+                            <br>
+                            <a href="https://www.linkedin.com/in/jeff-brandao/" target="_blank" class="text-decoration-none text-white">
+                                Jefferson Brandão
+                            </a>
+                            <a>/</a>
+                            <a href="https://www.linkedin.com/in/yasmin-menezes-355323225/" target="_blank" class="text-decoration-none text-white">
+                                Yasmin Menezes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
