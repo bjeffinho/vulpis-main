@@ -275,14 +275,21 @@
 
         let jsonCadastro = {};
 
+        var podeAcessar = false;
+
         firebase.auth().onAuthStateChanged((user) =>{
-        if(user !== null)
+        if(user !== null && !podeAcessar)
         {
           //alert("Você já está cadastrado!");
+          
           window.location.href='index.html';
         }
-        else
-          console.log(user);
+        else{
+            console.log(user);
+
+            podeAcessar = true;
+        }
+          
       })
 
         const cadastrar = () =>{
@@ -297,8 +304,6 @@
             if(mensagemCampo === "" && jsonCadastro["txtSenha"] === jsonCadastro["txtConfSenha"])
             {
                 
-                const db = firebase.firestore();
-
                 firebase.auth().createUserWithEmailAndPassword(jsonCadastro["txtEmail"], jsonCadastro["txtSenha"]).then((data) => {
                     db.collection("users").add(jsonCadastro).then((response) =>{
                         alert("Cadastro realizado com sucesso");
