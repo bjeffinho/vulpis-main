@@ -75,7 +75,7 @@
                     <label for="txtEmail">E-mail</label>                
                    </div>
 
-                   <button type="button" onclick="window.location.href='/confirmrecupsenha.html'" class="btn btn-lg btn-um text-white">Recuperar Senha</button>
+                   <button type="button" onclick="recuperarSenha()" class="btn btn-lg btn-um text-white">Recuperar Senha</button>
 
                    <p class="mt-3">
                     Ainda não é cadastrado? <a href="/cadastro.html">Clique aqui</a> para se cadastrar.
@@ -137,4 +137,42 @@
   
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+
+
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-database-compat.js"></script>
+
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDlToIsK-wV7r5iEU_1CQBUY62avDbrR8c",
+        authDomain: "vulpis-42c88.firebaseapp.com",
+        projectId: "vulpis-42c88",
+        storageBucket: "vulpis-42c88.appspot.com",
+        messagingSenderId: "478226486848",
+        appId: "1:478226486848:web:b0049a0ac9d0e103b071a5"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+
+        const recuperarSenha = () =>{
+          var email = document.querySelector("#txtEmail").value;
+
+          if(email.replaceAll(" ", "") !== "")
+          {
+            firebase.auth().sendPasswordResetEmail(email).then((data) =>{
+              window.location.href = 'confirmrecupsenha.html';
+
+
+            }).catch((error) =>{
+              alert(error.message);
+            });
+          }
+        }
+    </script>
 </html>

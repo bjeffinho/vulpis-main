@@ -97,7 +97,7 @@
                 <div class="container">
                     <h1>Informe seus dados para cadastrar</h1>
                     <hr>
-                    <form>
+                    <form id="formularioCadastro">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 ">
                                 <fieldset class="row">
@@ -173,7 +173,7 @@
                                     <legend>Senha de Acesso</legend>
                                     <div class="mb-3">
                                         <label for="txtSenha" Class="form-label">Senha</label>
-                                        <input type="password" Class="form-control" id="txtSenha">
+                                        <input type="password" Class="form-control" id="txtSenha" name="senha">
                                     </div>
                                     <div class="mb-3">
                                         <label for="txtConfSenha" Class="form-label">Confirmação de Senha</label>
@@ -185,7 +185,7 @@
                         <hr>
                         <div class="mb-3">
                           <a class="btn btn-light btn-outline-danger" href="/index.html">Cancelar</a>
-                          <input type="button" value="Criar meu Cadastro" class="btn text-white btn-um" onclick="window.location.href='/confirmarcadastro.html'">
+                          <input type="button" onclick="cadastrar()" value="Criar meu Cadastro" class="btn text-white btn-um">
                         </div>
                     </form>
                 </div>
@@ -245,4 +245,82 @@
         </div>
         <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     </body>
+
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-database-compat.js"></script>
+
+    <script>
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDlToIsK-wV7r5iEU_1CQBUY62avDbrR8c",
+        authDomain: "vulpis-42c88.firebaseapp.com",
+        projectId: "vulpis-42c88",
+        storageBucket: "vulpis-42c88.appspot.com",
+        messagingSenderId: "478226486848",
+        appId: "1:478226486848:web:b0049a0ac9d0e103b071a5"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+
+
+        let formCadastro = document.querySelector("#formularioCadastro");
+
+
+        let mensagemCampo = "";
+
+        let jsonCadastro = {};
+
+        firebase.auth().onAuthStateChanged((user) =>{
+        if(user !== null)
+        {
+          //alert("Você já está cadastrado!");
+          window.location.href='index.html';
+        }
+        else
+          console.log(user);
+      })
+
+        const cadastrar = () =>{
+            formCadastro.querySelectorAll("input").forEach((input) => {
+
+                if(input.value === undefined || input.value.replaceAll(" ", "") === "")
+                    mensagemCampo = 'Nenhum campo pode ser deixado vazio!';
+                else if(input.type !== 'button')
+                    jsonCadastro[input.id] = input.value;
+            });
+
+            if(mensagemCampo === "" && jsonCadastro["txtSenha"] === jsonCadastro["txtConfSenha"])
+            {
+                
+                const db = firebase.firestore();
+
+                firebase.auth().createUserWithEmailAndPassword(jsonCadastro["txtEmail"], jsonCadastro["txtSenha"]).then((data) => {
+                    db.collection("users").add(jsonCadastro).then((response) =>{
+                        alert("Cadastro realizado com sucesso");
+
+                        formCadastro.reset();
+
+                        window.location.href = 'confirmarcadastro.html';
+                    });
+                    
+                }).catch((error) =>{
+                    alert(error.message);
+                });
+            }
+            else
+            {
+                if(mensagemCampo === "")
+                    alert("As senhas digitadas devem ser iguais!");
+                else
+                    alert(mensagemCampo);
+
+                    
+            }
+        };
+    </script>
 </html>

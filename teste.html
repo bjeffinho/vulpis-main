@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite seu usuario: <input type="text" id="usuario"/>
+    <br/>
+    Digite sua senha: <input type="password" id="password"/>
+    <br/>
+    <button onclick="cadastrar()">CADASTRAR</button>
+</body>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-database-compat.js"></script>
+
+
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyDlToIsK-wV7r5iEU_1CQBUY62avDbrR8c",
+    authDomain: "vulpis-42c88.firebaseapp.com",
+    projectId: "vulpis-42c88",
+    storageBucket: "vulpis-42c88.appspot.com",
+    messagingSenderId: "478226486848",
+    appId: "1:478226486848:web:b0049a0ac9d0e103b071a5"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+
+    const cadastrar = () => {
+        var usuario = document.querySelector("#usuario").value;
+        var senha = document.querySelector("#password").value;
+
+        console.log(firebase.auth());
+        console.log(firebase.firestore());
+
+        const db = firebase.firestore();
+
+        firebase.auth().createUserWithEmailAndPassword(usuario, senha).then((data) => {
+            db.collection("users").add({
+                Curso: "Ads"
+            }).then((response) =>{
+                console.log("SIM")
+            });
+            
+        }).catch((error) =>{
+            alert(error.message);
+        });
+    }
+</script>
+</html>
