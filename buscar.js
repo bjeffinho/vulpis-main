@@ -64,3 +64,4 @@ function updateProductDisplay() {
         index++;
     });
 }
+
